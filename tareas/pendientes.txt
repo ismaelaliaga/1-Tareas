@@ -1,9 +1,12 @@
-Darle de comer al perro
-Comprar el pan
-Visitar a Juan
-Darle de comer al perro
-Comprar el pan
-Visitar a Juan
-Darle de comer al perro
-Comprar el pan
-Visitar a Juan
+2;Darle de comer al perro
+1;Comprar el pan
+3;Visitar a Juan
+4;Darle de comer al perro
+5;Comprar el pan
+7;Visitar a Juan
+8;Darle de comer al perro
+9;Comprar el pan
+6;Visitar a Juan
+0;Primera tarea pendiente 
+10; Primera tarea por formulario 
+11; Segunda tarea por formulario validada
