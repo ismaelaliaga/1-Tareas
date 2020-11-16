@@ -82,14 +82,14 @@
                             list($id, $tarea) = explode(";", $lineas);
 
                             if($lineas == $contador){
-
-                                echo "$id . $tarea<br>";
+                                ?>
+                                <div><label><?php echo "$id . $tarea";?><input type="checkbox" name="borradosenprog[]" value="0" ></label></div>
+                                <?php                                
                                 $contador++;
                                 fseek($pendientes,0);
-
-                            }
-                            
+                            }                            
                         }
+                        
 
                         fclose ($pendientes);
                     ?>

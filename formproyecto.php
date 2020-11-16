@@ -10,16 +10,11 @@
     /*Ejecutamos un bucle para organizar los id de manera secuencial ascendente
     comenzando por el valor 0 del archivo pendientes.txt */
     while ($lineas =fgets ($pendientes)){
-
         list($id, $tarea) = explode(";", $lineas);
-
         if($lineas == $contador){
-
             $contador++;
             fseek($pendientes,0);
-
-        }
-                            
+        }                            
     }
 
     /*Ejecutamos un bucle para validar que el nº de ID introducido sea correcto
@@ -34,7 +29,7 @@
     }
 
     #Se escribe en el documento pendientes.txt la ID correcta y su tarea
-    fwrite ($pendientes, " ".PHP_EOL . "$idform; $pendientesform");
+    fwrite ($pendientes, "$idform; $pendientesform".PHP_EOL);
     fclose ($pendientes);
     
     #Enlace para volver a la aplicación web y mostrar las tareas correctamente

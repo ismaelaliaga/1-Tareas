@@ -1,13 +1,8 @@
-2;Darle de comer al perro
-1;Comprar el pan
-3;Visitar a Juan
-4;Darle de comer al perro
-5;Comprar el pan
-7;Visitar a Juan
-8;Darle de comer al perro
-9;Comprar el pan
-6;Visitar a Juan
-0;Primera tarea pendiente 
-10; Primera tarea por formulario 
-11; Segunda tarea por formulario validada 
-12; La tarea del Antonio
+0; Tarea de prueba 1
+1; Tarea de prueba 2
+2; Tarea de prueba 3
+3; Tarea de prueba 4
+4; Tarea de prueba 4
+5; Tarea de prueba 5
+6; Tarea de prueba 6
+7; Tarea de prueba 7
