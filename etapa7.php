@@ -63,10 +63,12 @@
                             <legend>Introducir Tarea Pendiente</legend>
                             <div> <label>ID:(Introducir nº ID secuencial) <br><input name="intid"> </label> </div>
                             <div> <label>Descripción Tarea<br><input name="intpendientes"></label> </div>
-                        </fieldset>           
-
-                        <div><button type="submit">Introducir Tarea</button></div>
-
+                            <div><button type="submit">Introducir Tarea</button></div>
+                            
+                        </fieldset>     
+                    </form>
+                    <form  method="GET" enctype="application/x-www-form-urlencoded" action="borrados.php">
+                        <div><button type="submit" name="borrar">Borrar tareas</button></div>
                     </form>
 
                     <?php
@@ -83,7 +85,7 @@
 
                             if($lineas == $contador){
                                 ?>
-                                <div><label><?php echo "$id . $tarea";?><input type="checkbox" name="borradosenprog[]" value="0" ></label></div>
+                                <div><label><?php echo "$id . $tarea";?><input type="checkbox" name="borrado[]" value="0"></label></div>
                                 <?php                                
                                 $contador++;
                                 fseek($pendientes,0);

@@ -31,8 +31,8 @@
     #Se escribe en el documento pendientes.txt la ID correcta y su tarea
     fwrite ($pendientes, "$idform; $pendientesform".PHP_EOL);
     fclose ($pendientes);
+
     
     #Enlace para volver a la aplicación web y mostrar las tareas correctamente
     echo '<a href="etapa7.php">Se ha introducido la tarea correctamente, pulsa aquí para continuar</a>';
-    
     
