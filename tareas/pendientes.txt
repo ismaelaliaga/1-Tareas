@@ -9,4 +9,5 @@
 6;Visitar a Juan
 0;Primera tarea pendiente 
 10; Primera tarea por formulario 
-11; Segunda tarea por formulario validada
+11; Segunda tarea por formulario validada 
+12; La tarea del Antonio
