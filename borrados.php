@@ -1,14 +1,19 @@
 <?php
     
-    $contador = count($servicios = $_GET["borrado"]);
+    if(isset($_POST["borrar"])){
 
-    for ($i=0;$i<$contador;$i++){
+        $contador = count($borrado_pendientes = $_POST["borrado"]);
+        $pendientes = fopen ('tareas/pendientes.txt', "w+b");
+                
 
-        $servicios = $_GET["borrado"] [$i + 0];
-        echo $servicios;
-        echo "<br>";
+        for ($i=0;$i<$contador;$i++){
+            $borrado_pendientes = $_POST["borrado"] [$i + 0];
+            echo "Se van a borrar las siguientes tareas $borrado_pendientes";
+            fwrite($pendientes,"$borrado_pendientes*");            
+            echo "<br>";
+        }
 
-    }
+    }        
     
 
     
