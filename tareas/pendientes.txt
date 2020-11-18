@@ -2,7 +2,5 @@
 1; Tarea de prueba 2
 2; Tarea de prueba 3
 3; Tarea de prueba 4
-4; Tarea de prueba 4
-5; Tarea de prueba 5
-6; Tarea de prueba 6
-7; Tarea de prueba 7
+4; Tarea de prueba 5
+5; Tarea de prueba 6
