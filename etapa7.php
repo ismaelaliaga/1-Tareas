@@ -84,7 +84,11 @@
 
                             if($lineas == $contador){
                                 ?>                                        
+<<<<<<< HEAD
                                 <div><label><?php echo "$id . $tarea";?><input type="checkbox" name="borrado[]" value="<?php echo "$id"?>"></label></div>                                                                
+=======
+                                <div><label><?php echo "$id . $tarea";?><input type="checkbox" name="borrado[]" value="<?php echo "$id;$tarea" ?>"></label></div>                                                                
+>>>>>>> 34ea0ddd0699b5fbb055448227769f9d406f5fa9
                                 <?php                                                       
                                 $contador++;
                                 fseek($pendientes,0);
