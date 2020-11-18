@@ -80,7 +80,7 @@
                         <div><button type="submit" name="borrar">Borrar tareas</button></div>
                         <?php
                          while ($lineas =fgets ($pendientes)){
-                            list($id, $tarea) = explode(";", $lineas);
+                            list($id, $tarea, $marcado) = explode(";", $lineas);
 
                             if($lineas == $contador){
                                 ?>                                        
