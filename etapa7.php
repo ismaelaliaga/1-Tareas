@@ -77,7 +77,7 @@
                         $contador = 0;
                         ?>
                         <form  method="POST" enctype="application/x-www-form-urlencoded" action="borrados.php">
-                        <div><button type="submit" name="borrar">Borrar tareas</button></div>
+                        <div><button type="submit" name="borrarpendientes">Borrar tareas</button></div>
                         <?php
                          while ($lineas =fgets ($pendientes)){
                             list($id, $tarea, $marcado) = explode(";", $lineas);
@@ -100,23 +100,43 @@
                         }
                         ?>
                         </form>
-                        <?php
-                        fseek($pendientes,0);
-                        
+                        <?php                      
 
                         fclose ($pendientes);
                     ?>
                 </td>
                 <td>
+                <?php
+
+                    /*Ejecutamos un bucle para organizar los id de manera secuencial ascendente
+                    comenzando por el valor 0 del archivo pendientes.txt*/
+                    $enprogreso = fopen ('tareas/enprogreso.txt', "rb");
+
+                    $contador = 0;
+                    ?>
+                    <form  method="POST" enctype="application/x-www-form-urlencoded" action="borrados.php">
+                    <div><button type="submit" name="borrarenprogreso">Borrar tareas</button></div>
+                    <?php
+                    while ($lineas =fgets ($enprogreso)){
+                        list($id, $tarea, $marcado) = explode(";", $lineas);
+                        $comprobar = "$id".";"."$tarea".";"."$marcado";
+                        $comprobar =trim($comprobar);  
+
+                        if($lineas == $contador){
+                            if($comprobar != "$id".";"."$tarea".";"."*"){
+                            ?>                                        
+                            <div><label><?php echo "$id . $tarea";?><input type="checkbox" name="borrado[]" value="<?php echo "$id"?>"></label></div>                                                                
+                            <?php                                 
+                            }                                                      
+                            $contador++;
+                            fseek($enprogreso,0);
+                        }                     
+                    }
+                    ?>
+                    </form>
                     <?php
 
-                        #Se define un bucle para leer e imprimir el pantalla el contenido de enprogreso.txt
-                        $enprogreso = fopen ('tareas/enprogreso.txt', "rb");
-                        while ($lineas =fgets ($enprogreso)) { 
-
-                            echo "$lineas <br>";
-                        }
-                        fclose ($enprogreso);
+                    fclose ($enprogreso);
                     ?>
                 </td>
                 <td>
