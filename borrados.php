@@ -31,10 +31,6 @@
         $tareasaborrar = 'tareas/enprogreso.txt';
         borrartareas($tareasaborrar);
     }
-    if(isset($_POST["borrarfinalizadas"])){
-        $tareasaborrar = 'tareas/finalizadas.txt';
-        borrartareas($tareasaborrar);
-    }    
         
         
 
