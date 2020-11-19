@@ -81,18 +81,29 @@
                         <?php
                          while ($lineas =fgets ($pendientes)){
                             list($id, $tarea, $marcado) = explode(";", $lineas);
+                            $comprobar = "$id".";"."$tarea".";"."$marcado";
+                            $comprobar =trim($comprobar);
+                            
+                            
+                            if($comprobar != "$id".";"."$tarea".";"."*"){
+                                ?>                                        
+                                <div><label><?php echo "$id . $tarea";?><input type="checkbox" name="borrado[]" value="<?php echo "$id"?>"></label></div>                                                                
+                                <?php 
+                            }
+                            
 
-                            if($lineas == $contador){
+                            /*if($lineas == $contador){
                                 ?>                                        
                                 <div><label><?php echo "$id . $tarea";?><input type="checkbox" name="borrado[]" value="<?php echo "$id"?>"></label></div>                                                                
                                 <?php                                                       
                                 $contador++;
                                 fseek($pendientes,0);
-                            }                            
+                            }   */                     
                         }
                         ?>
                         </form>
                         <?php
+                        fseek($pendientes,0);
                         
 
                         fclose ($pendientes);
