@@ -85,20 +85,18 @@
                             $comprobar =trim($comprobar);
                             
                             
-                            if($comprobar != "$id".";"."$tarea".";"."*"){
-                                ?>                                        
-                                <div><label><?php echo "$id . $tarea";?><input type="checkbox" name="borrado[]" value="<?php echo "$id"?>"></label></div>                                                                
-                                <?php 
-                            }
+                            
                             
 
-                            /*if($lineas == $contador){
+                            if($lineas == $contador){
+                                if($comprobar != "$id".";"."$tarea".";"."*"){
                                 ?>                                        
                                 <div><label><?php echo "$id . $tarea";?><input type="checkbox" name="borrado[]" value="<?php echo "$id"?>"></label></div>                                                                
-                                <?php                                                       
+                                <?php                                 
+                                }                                                      
                                 $contador++;
                                 fseek($pendientes,0);
-                            }   */                     
+                            }                     
                         }
                         ?>
                         </form>
