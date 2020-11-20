@@ -1,6 +1,3 @@
-0; cucurucho;*
-1; Ver videos Invision;*
-2; volver a ver videos invision;*
-3; Comentar proyecto 2;*
-4; oopopopopopp;*
+4; oopopopopopp; 
+1; Ver videos Invision; 
 5; asdasdasda; 
