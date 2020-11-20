@@ -49,9 +49,13 @@
         <!-- Se define la tabla donde van a ir las tareas pendientes, en progreso y finalizadas -->
         <table id="tabla"> 
             <tr>
-                <th>Tareas Pendientes
-                <br>
-                <!-- Se define un formulario para que el cliente pueda introducir una ID y una tarea 
+                <th>Tareas Pendientes</th>
+                <th>Tareas en Progreso</th>
+                <th>Tareas Finalizadas</th>
+            </tr>
+            <tr>
+                <td>
+                    <!-- Se define un formulario para que el cliente pueda introducir una ID y una tarea 
                     los datos de este formulario van enlazados a formproyecto.php-->
                     <form method="POST" enctype="application/x-www-form-urlencoded" action="formproyecto.php">
                 
@@ -62,12 +66,6 @@
                             <div><button type="submit">Introducir Tarea</button></div>                            
                         </fieldset>     
                     </form>
-                    </th>
-                <th>Tareas en Progreso</th>
-                <th>Tareas Finalizadas</th>
-            </tr>
-            <tr>
-                <td>
                     
 
                     <?php
@@ -78,8 +76,8 @@
                         
                         $contador = 0;
                         ?>
-                        <form  method="POST" enctype="application/x-www-form-urlencoded" action="tratamiento.php">
-                        <div><button type="submit" name="borrarpendientes">Borrar tareas</button><button type="submit" name="moveraenprogreso">Mover a tareas</button></div>
+                        <form  method="POST" enctype="application/x-www-form-urlencoded" action="borrados.php">
+                        <div><button type="submit" name="borrarpendientes">Borrar tareas</button></div>
                         <?php
                          while ($lineas =fgets ($pendientes)){
                             list($id, $tarea, $marcado) = explode(";", $lineas);
@@ -93,7 +91,7 @@
                             if($lineas == $contador){
                                 if($comprobar != "$id".";"."$tarea".";"."*"){
                                 ?>                                        
-                                <div><label><?php echo "$id . $tarea";?><input type="checkbox" name="tratar[]" value="<?php echo "$id"?>"></label></div>                                                                
+                                <div><label><?php echo "$id . $tarea";?><input type="checkbox" name="borrado[]" value="<?php echo "$id"?>"></label></div>                                                                
                                 <?php                                 
                                 }                                                      
                                 $contador++;
@@ -102,44 +100,52 @@
                         }
                         ?>
                         </form>
-                        <?php                      
+                        <?php
+                        fseek($pendientes,0);
+                        
 
                         fclose ($pendientes);
                     ?>
                 </td>
                 <td>
-                        
                     <?php
 
                         /*Ejecutamos un bucle para organizar los id de manera secuencial ascendente
                         comenzando por el valor 0 del archivo pendientes.txt*/
-                        $enprogreso = fopen ('tareas/enprogreso.txt', "rb");
+                        $pendientes = fopen ('tareas/enprogreso.txt', "rb");
 
                         $contador = 0;
                         ?>
-                        <form  method="POST" enctype="application/x-www-form-urlencoded" action="tratamiento.php">
+                        <form  method="POST" enctype="application/x-www-form-urlencoded" action="borrados.php">
                         <div><button type="submit" name="borrarenprogreso">Borrar tareas</button></div>
                         <?php
-                        while ($lineas =fgets ($enprogreso)){
+                        while ($lineas =fgets ($pendientes)){
                             list($id, $tarea, $marcado) = explode(";", $lineas);
                             $comprobar = "$id".";"."$tarea".";"."$marcado";
-                            $comprobar =trim($comprobar);  
-
+                            $comprobar =trim($comprobar);
                             
+                            
+                            
+                            
+
+                            if($lineas == $contador){
                                 if($comprobar != "$id".";"."$tarea".";"."*"){
                                 ?>                                        
-                                <div><label><?php echo "$id . $tarea";?><input type="checkbox" name="tratar[]" value="<?php echo "$id"?>"></label></div>                                                                
+                                <div><label><?php echo "$id . $tarea";?><input type="checkbox" name="borrado[]" value="<?php echo "$id"?>"></label></div>                                                                
                                 <?php                                 
                                 }                                                      
+                                $contador++;
+                                fseek($pendientes,0);
                             }                     
-
+                        }
                         ?>
                         </form>
                         <?php
+                        fseek($pendientes,0);
 
-                        fclose ($enprogreso);
+
+                        fclose ($pendientes);
                     ?>
-
                 </td>
                 <td>
                     <?php
