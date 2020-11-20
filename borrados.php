@@ -17,7 +17,7 @@
                 fwrite($fichero,"*");
                 $i++;
                 if($i<$contador){
-                    $borrado_pendientes = $_POST["borrado"] [$i + 0];
+                    $borrado_fichero = $_POST["borrado"] [$i + 0];
                 }
             }
         }
