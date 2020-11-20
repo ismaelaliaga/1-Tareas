@@ -56,7 +56,7 @@
                     <form method="POST" enctype="application/x-www-form-urlencoded" action="formproyecto.php">
                 
                         <fieldset> 
-                            <legend>Introducir Tarea Pendiente</legend>
+                            <legend>Introducir Tareas</legend>
                             <div> <label>ID:(Introducir nº ID secuencial) <br><input name="intid"> </label> </div>
                             <div> <label>Descripción Tarea<br><input name="intpendientes"></label> </div>
                             <div><button type="submit">Introducir Tarea</button></div>                            
@@ -79,7 +79,7 @@
                         $contador = 0;
                         ?>
                         <form  method="POST" enctype="application/x-www-form-urlencoded" action="tratamiento.php">
-                        <div><button type="submit" name="borrarpendientes">Borrar tareas</button><button type="submit" name="moveraenprogreso">Mover a tareas</button></div>
+                        <div><button type="submit" name="borrarpendientes">Borrar tareas Pendientes</button><button type="submit" name="moveraenprogreso">Mover tareas a en Progreso</button></div>
                         <?php
                          while ($lineas =fgets ($pendientes)){
                             list($id, $tarea, $marcado) = explode(";", $lineas);
@@ -118,7 +118,7 @@
                         $contador = 0;
                         ?>
                         <form  method="POST" enctype="application/x-www-form-urlencoded" action="tratamiento.php">
-                        <div><button type="submit" name="borrarenprogreso">Borrar tareas</button></div>
+                        <div><button type="submit" name="borrarenprogreso">Borrar tareas en Progreso</button><button type="submit" name="moverafinalizadas">Mover tareas a Finalizadas</button></div>
                         <?php
                         while ($lineas =fgets ($enprogreso)){
                             list($id, $tarea, $marcado) = explode(";", $lineas);
