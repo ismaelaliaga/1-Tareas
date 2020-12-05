@@ -1,5 +1,7 @@
 <?php
 
+    //Se crea una funcion para hacer borrado lógico
+
     function borrartareas($tareasaborrar){
         $contador = count($borrado_pendientes = $_POST["tratar"]);
         $i=0;
@@ -22,6 +24,8 @@
             }
         }
     }
+
+    //Se crea funcion para realizar borrado lógico y escribir la tarea en el siguiente fichero
 
     function movertareas($tareasaborrar,$tareasamover){
         $contador = count($borrado_pendientes = $_POST["tratar"]);
@@ -48,11 +52,14 @@
         fclose($fichero);
         fclose($ficheromover);
     }
-    
+
+    //Se definen que botones del formulario se han pulsado para darle los valores a la funcion pertinente
+
     if(isset($_POST["borrarpendientes"])){
         $tareasaborrar = 'tareas/pendientes.txt';
         borrartareas($tareasaborrar);
     }
+
     if(isset($_POST["borrarenprogreso"])){
         $tareasaborrar = 'tareas/enprogreso.txt';
         borrartareas($tareasaborrar);
@@ -63,18 +70,13 @@
         $tareasaborrar = 'tareas/pendientes.txt';
         movertareas($tareasaborrar,$tareasamover);
     }
+
     if(isset($_POST["moverafinalizadas"])){
         $tareasamover = 'tareas/finalizadas.txt';
         $tareasaborrar = 'tareas/enprogreso.txt';
         movertareas($tareasaborrar,$tareasamover);
-    }
-        
-        
-
-        
-
-
+    }      
 
     #Enlace para volver a la aplicación web y mostrar las tareas correctamente
-    echo '<a href="etapa7.php">Se ha introducido la tarea correctamente, pulsa aquí para continuar</a>';
+    echo '<a href="etapa7.php">Se ha realizado la acción correctamente, pulsa aquí para continuar</a>';
     
