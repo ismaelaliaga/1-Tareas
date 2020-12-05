@@ -9,3 +9,5 @@
 8; Pensar que mejoras le puedo indicar al programador para mi aplicación de tareas y hacer que trabaje en navidad;*
 9; Entregar proyecto;*
 10; Configurar retropie;*
+11; Limpiar el coche;*
+12; Hacer de comer;
