@@ -3,7 +3,7 @@
     //Se crea una funcion para hacer borrado lógico
 
     function borrartareas($tareasaborrar){
-        $contador = count($borrado_pendientes = $_POST["tratar"]);
+        $contador = count($borrado = $_POST["tratar"]);
         $i=0;
         $fichero = fopen ($tareasaborrar, "r+b");
         
@@ -23,12 +23,13 @@
                 }
             }
         }
+        fclose($fichero);
     }
 
     //Se crea funcion para realizar borrado lógico y escribir la tarea en el siguiente fichero
 
     function movertareas($tareasaborrar,$tareasamover){
-        $contador = count($borrado_pendientes = $_POST["tratar"]);
+        $contador = count($borrado = $_POST["tratar"]);
         $i=0;
         $fichero = fopen ($tareasaborrar, "r+b");
         $ficheromover = fopen ($tareasamover, "a+b");        

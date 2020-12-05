@@ -1,6 +1,7 @@
 2; Acabar documentación del Proyecto (fase 3);*
 8; Pensar que mejoras le puedo indicar al programador para mi aplicación de tareas y hacer que trabaje en navidad;
-6; Ir a casa de Jorge ha arreglarle el ordenador;
+6; Ir a casa de Jorge ha arreglarle el ordenador;*
 0; Lavar los platos;*
 1; Sacar al perro;*
 3; Limpiar el polvo;*
+9; Entregar proyecto;*
