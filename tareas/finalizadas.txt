@@ -1,2 +1,0 @@
-1; Tarea de prueba 2;
-5; Tarea de prueba 6;
