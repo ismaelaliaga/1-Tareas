@@ -10,9 +10,14 @@
         <link rel="stylesheet" href="css/estilos.css">   
     </head>
     <body> 
-        <!-- Se conecta a la base de datos -->
+
             <?php
+                //Se conecta a la base de datos
                 include "conexionbd.php";
+                //Se inicializan y preparan las sentencias a consultar
+                include "consultas_preparadas.php";
+                //Se inicializa un contador para saber en que estado se encuentra cada tarea a la hora de mostrarlas
+                $contador=0;
             ?>
 
         <!-- Se define la tabla donde van a ir las tareas pendientes, en progreso y finalizadas -->
@@ -25,22 +30,29 @@
             <tr>
                 <td>
                     <?php
-                        include "consultapen.php";
+                        //Se lleva a cabo la visualización de las tareas pendientes
+                        //ordenadas por orden de prioridad de mayor a menor
+                        include "consultas.php";   
                     ?>
                 </td>
                 <td>      
                     <?php
-                        include "consultaenpro.php";
+                        //Se lleva a cabo la visualización de las tareas En progreso
+                        //ordenadas por orden de prioridad de mayor a menor
+                        include "consultas.php";
                     ?>
                 </td>
                 <td>
                     <?php
-                        include "consultafin.php";
+                        //Se lleva a cabo la visualización de las tareas finalizadas
+                        //ordenadas por orden de alfabético de la A a la Z las tareas
+                        include "consultas.php";
                     ?>
                 </td>
             </tr>
             <tr>
                 <td>   
+                    <!-- Funcionalidad de crear tarea pendiente con prioridad-->
                     <form method="POST" enctype="application/x-www-form-urlencoded" action="funcionalidades.php">
                         <fieldset> 
                             <legend>Crear Tarea Pendiente</legend>
@@ -57,6 +69,7 @@
                     </form>
                 </td>
                 <td>
+                    <!-- Funcionalidad de borrar tarea -->
                     <form method="POST" enctype="application/x-www-form-urlencoded" action="funcionalidades.php">
                         <fieldset> 
                             <legend>Borrar tareas</legend>
@@ -66,6 +79,7 @@
                     </form>
                 </td>
                 <td>
+                    <!-- Funcionalidad de mover la tarea a otro estado -->
                     <form method="POST" enctype="application/x-www-form-urlencoded" action="funcionalidades.php">
                         <fieldset> 
                             <legend>Mover tareas tareas</legend>
@@ -84,6 +98,7 @@
             </tr>
         </table>
         <?php
+            //Se cierra la conexión con la base de datos
             $bd->close();
         ?>
     </body>
