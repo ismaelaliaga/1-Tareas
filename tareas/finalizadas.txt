@@ -1,5 +1,0 @@
-0; Lavar los platos;
-1; Sacar al perro;
-3; Limpiar el polvo;
-2; Acabar documentación del Proyecto (fase 3);
-9; Entregar proyecto;
