@@ -14,10 +14,10 @@
             <?php
                 //Se conecta a la base de datos
                 include "conexionbd.php";
-                //Se inicializan y preparan las sentencias a consultar
-                include "consultas_preparadas.php";
-                //Se inicializa un contador para saber en que estado se encuentra cada tarea a la hora de mostrarlas
                 $contador=0;
+                //Se inicializan y preparan las sentencias a consultar
+                $consultaasc = $bd->prepare("SELECT * FROM `tareas` WHERE `estado` = ? ORDER BY `tarea` ASC");
+                $consultadesc = $bd->prepare("SELECT * FROM `tareas` WHERE `estado` = ? ORDER BY `prioridad` DESC");
             ?>
 
         <!-- Se define la tabla donde van a ir las tareas pendientes, en progreso y finalizadas -->
@@ -30,10 +30,15 @@
             <tr>
                 <td>
                     <?php
+                        
+                        ?>
+                        <form method="POST" enctype="application/x-www-form-urlencoded" action="funcionalidades.php">
+                        <?php
                         //Se lleva a cabo la visualización de las tareas pendientes
                         //ordenadas por orden de prioridad de mayor a menor
-                        include "consultas.php";   
-                    ?>
+                        include "consultas.php";
+                        ?>
+                            
                 </td>
                 <td>      
                     <?php
@@ -51,9 +56,9 @@
                 </td>
             </tr>
             <tr>
-                <td>   
+                <td>
                     <!-- Funcionalidad de crear tarea pendiente con prioridad-->
-                    <form method="POST" enctype="application/x-www-form-urlencoded" action="funcionalidades.php">
+                    
                         <fieldset> 
                             <legend>Crear Tarea Pendiente</legend>
                             <div> <label>Descripción Tarea<br><input name="intdescripcion"></label> </div>
@@ -66,32 +71,27 @@
                             </label></div>
                             <div><button type="submit" name="inttarea">Introducir Tarea</button></div>                            
                         </fieldset>     
-                    </form>
                 </td>
                 <td>
-                    <!-- Funcionalidad de borrar tarea -->
-                    <form method="POST" enctype="application/x-www-form-urlencoded" action="funcionalidades.php">
-                        <fieldset> 
-                            <legend>Borrar tareas</legend>
-                            <div> <label>ID de la tarea a borrar <br><input type= "number" name="tareaborrar"> </label> </div>
-                            <div><button type="submit" name="borrartarea">Borrar Tarea</button></div>                            
-                        </fieldset>     
-                    </form>
+                    <fieldset>
+                        <legend>Borrar tareas</legend>
+                        <div><button type="submit" name="borrartarea">Borrar Tareas</button></div>
+                    </fieldset>
                 </td>
                 <td>
                     <!-- Funcionalidad de mover la tarea a otro estado -->
-                    <form method="POST" enctype="application/x-www-form-urlencoded" action="funcionalidades.php">
+                    
                         <fieldset> 
                             <legend>Mover tareas tareas</legend>
-                            <div> <label>ID de la tarea a mover <br><input type= "number" name="tareamover"> </label> </div>
                             <div> <label>Estado Tarea <br>
                                 <select name="intestado">
                                     <option value="0">Pendiente</option>
                                     <option value="1">En progreso</option>
                                     <option value="2">Finalizada</option>
                                 </select> 
+                                <div><br><button type="submit" name="movertarea">Mover Tareas</button></div>
                             </label></div>
-                            <div><button type="submit" name="movertarea">Mover Tarea</button></div>                            
+                                                        
                         </fieldset>     
                     </form>
                 </td>

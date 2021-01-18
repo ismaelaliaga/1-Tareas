@@ -13,17 +13,25 @@
     //Se borra la tarea especificada por el usuario
     if(isset($_POST["borrartarea"])){
         $sentenciaborrar = $bd->prepare("DELETE FROM `tareas` WHERE `id` = ?");
-        $sentenciaborrar->bind_param("i", $borrartarea);
-        $borrartarea = $_POST["tareaborrar"];
-        $sentenciaborrar->execute();
+        $sentenciaborrar->bind_param("i", $borrartarea2);
+        $borrartarea = $_POST["tareas"];
+        foreach($borrartarea as $valor){
+            $borrartarea2 = $valor;
+            $sentenciaborrar->execute();
+        }
+        
     }
     //Se mueve una tarea a un estado especificado por el usuario
     if(isset($_POST["movertarea"])){
-        $sentencia = $bd->prepare("UPDATE `tareas` SET `estado` = ? WHERE `id` = ?");
-        $sentencia->bind_param("ii", $estadotarea, $idmover);
+        $sentenciamover = $bd->prepare("UPDATE `tareas` SET `estado` = ? WHERE `id` = ?");
+        $sentenciamover->bind_param("ii", $estadotarea, $idmover2);
         $estadotarea = $_POST["intestado"];
-        $idmover = $_POST["tareamover"];
-        $sentencia->execute(); 
+        $idmover = $_POST["tareas"];
+        foreach($idmover as $valor){
+            $idmover2 = $valor;
+            $sentenciamover->execute();
+        }
+        
     }
     //Se redirecciona a la carpeta raíz donde se cargará el archivo index.php
     header("Location: ./");
