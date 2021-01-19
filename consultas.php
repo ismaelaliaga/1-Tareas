@@ -23,15 +23,15 @@
     if($contador == 0 || $contador ==1){
         while ($consultadesc->fetch()){
             if($prioridad == 0){
-            ?><div class="divbaja"><label class="label"><?php echo "$id - $tarea"; ?><input type="checkbox" name="tareas[]" value="<?php echo $id; ?>" > </label> </div>
+            ?><div> <div class="circulobaja"></div><label><?php echo "$id - $tarea"; ?><input type="checkbox" name="tareas[]" value="<?php echo $id; ?>" > </label> </div>
             <?php
             }
             elseif ($prioridad == 1) {
-                ?><div class="divmedia"> <label class="label"><?php echo "$id - $tarea"; ?><input type="checkbox" name="tareas[]" value="<?php echo $id; ?>" > </label> </div>
+                ?><div> <div class="circulomedia"></div><label><?php echo "$id - $tarea"; ?><input type="checkbox" name="tareas[]" value="<?php echo $id; ?>" > </label> </div>
                 <?php 
             }
             elseif ($prioridad == 2) {
-                ?><div class="divalta"> <label class="label"><?php echo "$id - $tarea"; ?><input type="checkbox" name="tareas[]" value="<?php echo $id; ?>" > </label> </div>
+                ?><div> <div class="circuloalta"></div><label><?php echo "$id - $tarea"; ?><input type="checkbox" name="tareas[]" value="<?php echo $id; ?>" > </label> </div>
                 <?php 
             }
 
@@ -42,15 +42,15 @@
     elseif($contador == 2) {
         while ($consultaasc->fetch()){
             if($prioridad == 0){
-            ?><div class="divbaja"><label class="label"><?php echo "$id - $tarea"; ?><input type="checkbox" name="tareas[]" value="<?php echo $id; ?>" > </label> </div>
+            ?><div> <div class="circulobaja"></div><label><?php echo "$id - $tarea"; ?><input type="checkbox" name="tareas[]" value="<?php echo $id; ?>" > </label> </div>
             <?php
             }
             elseif ($prioridad == 1) {
-                ?><div class="divmedia"> <label class="label"><?php echo "$id - $tarea"; ?><input type="checkbox" name="tareas[]" value="<?php echo $id; ?>" > </label> </div>
+                ?><div> <div class="circulomedia"></div><label><?php echo "$id - $tarea"; ?><input type="checkbox" name="tareas[]" value="<?php echo $id; ?>" > </label> </div>
                 <?php 
             }
             elseif ($prioridad == 2) {
-                ?><div class="divalta"> <label class="label"><?php echo "$id - $tarea"; ?><input type="checkbox" name="tareas[]" value="<?php echo $id; ?>" > </label> </div>
+                ?><div> <div class="circuloalta"></div><label><?php echo "$id - $tarea"; ?><input type="checkbox" name="tareas[]" value="<?php echo $id; ?>" > </label> </div>
                 <?php 
             }
 

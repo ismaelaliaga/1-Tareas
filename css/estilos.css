@@ -48,22 +48,33 @@ th, td {
     background-color: rgb(192, 192, 192);
 }
 
-.label{
-    color:black;
-    margin-left:5px;
-    
+.circulobaja {
+    width: 12px;
+    height: 12px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    background: #5cb85c;
+    display: inline-block;
+    margin-right:10px;
 }
-.divbaja{
-    background-color: rgba(12, 201, 12, 0.315);
-    margin-bottom:10px;
+.circulomedia {
+    width: 12px;
+    height: 12px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    background: #e9fa02;
+    display: inline-block;
+    margin-right:10px;
 }
-
-.divmedia{
-    background-color: rgba(220, 235, 11, 0.568);
-    margin-bottom:10px;
-}
-
-.divalta{
-    background-color: rgba(206, 14, 14, 0.432);
-    margin-bottom:10px;
+.circuloalta {
+    width: 12px;
+    height: 12px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    background: #df0707;
+    display: inline-block;
+    margin-right:10px;
 }
