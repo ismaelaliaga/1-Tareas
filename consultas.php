@@ -23,15 +23,15 @@
     if($contador == 0 || $contador ==1){
         while ($consultadesc->fetch()){
             if($prioridad == 0){
-            ?><div> <label><?php echo "$id - $tarea - Prioridad Baja"; ?><input type="checkbox" name="tareas[]" value="<?php echo $id; ?>" > </label> </div>
+            ?><div class="divbaja"><label class="label"><?php echo "$id - $tarea"; ?><input type="checkbox" name="tareas[]" value="<?php echo $id; ?>" > </label> </div>
             <?php
             }
             elseif ($prioridad == 1) {
-                ?><div> <label><?php echo "$id - $tarea - Prioridad Media"; ?><input type="checkbox" name="tareas[]" value="<?php echo $id; ?>" > </label> </div>
+                ?><div class="divmedia"> <label class="label"><?php echo "$id - $tarea"; ?><input type="checkbox" name="tareas[]" value="<?php echo $id; ?>" > </label> </div>
                 <?php 
             }
             elseif ($prioridad == 2) {
-                ?><div> <label><?php echo "$id - $tarea - Prioridad Alta"; ?><input type="checkbox" name="tareas[]" value="<?php echo $id; ?>" > </label> </div>
+                ?><div class="divalta"> <label class="label"><?php echo "$id - $tarea"; ?><input type="checkbox" name="tareas[]" value="<?php echo $id; ?>" > </label> </div>
                 <?php 
             }
 
@@ -41,9 +41,20 @@
     //Muestra en pantalla el contenido de las tareas finalizadas
     elseif($contador == 2) {
         while ($consultaasc->fetch()){
-            ?><div> <label><?php echo "$id - $tarea"; ?><input type="checkbox" name="tareas[]" value="<?php echo $id; ?>" > </label> </div>
+            if($prioridad == 0){
+            ?><div class="divbaja"><label class="label"><?php echo "$id - $tarea"; ?><input type="checkbox" name="tareas[]" value="<?php echo $id; ?>" > </label> </div>
             <?php
             }
+            elseif ($prioridad == 1) {
+                ?><div class="divmedia"> <label class="label"><?php echo "$id - $tarea"; ?><input type="checkbox" name="tareas[]" value="<?php echo $id; ?>" > </label> </div>
+                <?php 
+            }
+            elseif ($prioridad == 2) {
+                ?><div class="divalta"> <label class="label"><?php echo "$id - $tarea"; ?><input type="checkbox" name="tareas[]" value="<?php echo $id; ?>" > </label> </div>
+                <?php 
+            }
+
+        }
         $contador++;
         //Comprueba que se han mostrado todas las tareas en pantalla y cierra las sentencias preparadas
         if($contador==3){

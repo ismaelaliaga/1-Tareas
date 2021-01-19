@@ -46,4 +46,24 @@ th, td {
 
 #tabla th {
     background-color: rgb(192, 192, 192);
-}  
+}
+
+.label{
+    color:black;
+    margin-left:5px;
+    
+}
+.divbaja{
+    background-color: rgba(12, 201, 12, 0.315);
+    margin-bottom:10px;
+}
+
+.divmedia{
+    background-color: rgba(220, 235, 11, 0.568);
+    margin-bottom:10px;
+}
+
+.divalta{
+    background-color: rgba(206, 14, 14, 0.432);
+    margin-bottom:10px;
+}
